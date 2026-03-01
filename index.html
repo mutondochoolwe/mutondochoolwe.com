@@ -500,8 +500,23 @@ bar.style.width = bar.getAttribute("data-width");
 
 skillBars.forEach(bar => skillObserver.observe(bar));
 
+/* CLOSE MENU WHEN CLICKING A LINK */
+document.querySelectorAll("#nav a").forEach(link => {
+link.addEventListener("click", () => {
+nav.classList.remove("active");
+});
+});
+
+/* CLOSE MENU WHEN CLICKING OUTSIDE */
+document.addEventListener("click", (e) => {
+if (!nav.contains(e.target) && !menu.contains(e.target)) {
+nav.classList.remove("active");
+}
+});
+ 
 </script>
 
 </body>
 
 </html>
+
