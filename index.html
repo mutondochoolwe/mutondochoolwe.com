@@ -532,6 +532,22 @@ if (!nav.contains(e.target) && !menu.contains(e.target)) {
 nav.classList.remove("active");
 }
 });
+
+ /* SKILLS ANIMATION */
+const skillBars = document.querySelectorAll(".progress-bar");
+
+const skillObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const bar = entry.target;
+bar.style.width = bar.getAttribute("data-width");
+}
+});
+}, { threshold: 0.5 });
+
+skillBars.forEach(bar => skillObserver.observe(bar));
+ 
 </script>
 </body>
 </html>
+
